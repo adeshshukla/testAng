@@ -2,7 +2,22 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.4.
 
-## Development server
+## Clone repository in VS Code
+    Open VS Code.
+    Click on git icon in left menu.
+    Click on 'Clone Repository' button.
+    In the next dialog, provide path where to clone this repo.
+    Now your repository is cloned.
+
+## Install npm dependencies
+    To run your application we need to install dependencies of our project. It can be done in two ways:
+    1. In VS code :
+        Open New Terminal and run command `npm install`
+    OR
+    2. Open Command prompt and go to the code location.
+        Then run command : `npm install`
+
+## Run application 
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
