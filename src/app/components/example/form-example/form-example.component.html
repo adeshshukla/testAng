@@ -1,0 +1,85 @@
+<h3>template reference variable --------------</h3>
+<div>
+  <h2 #h2Elm>Welcome</h2>
+</div>
+{{h2Elm.textContent}}
+
+<hr>
+<label for="Name">Name</label>
+<input type="text" #nameInput class="class1 class2" required [readonly]="isReadOnly.checked"
+  [disabled]="isReadOnly.checked">
+<button (click)="onSaveName(nameInput)">Save Name</button>
+<hr>
+
+<p>
+  <textarea #refVar (keyup)="0" (select)="0" cols="25" rows="3">Change or highlight some of this text</textarea>
+</p>
+<div>textLength: {{refVar.textLength}}</div>
+<div>selectionStart: {{refVar.selectionStart}}</div>
+<div>selectionEnd: {{refVar.selectionEnd}}</div>
+<p>
+  <button (click)="refVar.select()">
+    Select All
+  </button>
+  <button (click)="refVar.value = ''" [disabled]="refVar.value === ''">
+    Clear
+  </button>
+</p>
+
+<hr>
+<div>
+  <textarea #textArea [readonly]="isReadOnly.checked" cols="25" rows="3">one two three four</textarea>
+</div>
+<label>
+  <input ref-isReadOnly type="checkbox" (change)="0">
+  Read only
+</label>
+
+<h3>Viewchild ----------</h3>
+<label>Name: </label>
+<input type="text" #txtNameChild>
+<button (click)="onDoSomething()">Do something viewchild</button>
+
+<h3>Use of ngModel--------</h3>
+
+<label>Name: </label>
+<input type="text" name="tName" #txtName="ngModel" [(ngModel)]="name" required minlength="3">
+<!-- <button (click)="checkInput(txtName)">Check Error</button> -->
+
+<br>
+Value : {{txtName.value}}
+<br>
+isTouched : {{txtName.touched}} | isDirty : {{txtName.dirty}} | isValid : {{txtName.valid}}
+<br>
+Form errors : {{txtName.errors | json}}
+<span style="color: red;" [hidden]="txtName.pristine || txtName.valid">Name is required</span>
+
+<h3>Handling multiple errors</h3>
+<input id="name" name="name" class="form-control"
+      required minlength="4"
+      [(ngModel)]="nameValid" #mulValidname="ngModel" >
+
+      Errors : {{mulValidname.errors|json}}
+
+<div *ngIf="mulValidname.invalid && (mulValidname.dirty || mulValidname.touched)"
+    class="alert alert-danger">
+
+  <div *ngIf="mulValidname.errors.required">
+    Name is required.
+  </div>
+  <div *ngIf="mulValidname.errors.minlength">
+    Name must be at least {{mulValidname.errors.minlength.requiredLength}} characters long.
+    Currenlty length : {{mulValidname.errors.minlength.actualLength}}
+  </div>
+</div>
+
+<div>
+  Email:
+    <input type="text" pattern="\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b" id="txtEmail" name="txtEmail"
+        required 
+        [(ngModel)]="myemail" #myemailRef="ngModel" >
+    </div>
+
+    {{myemailRef.valid}}
+    {{myemailRef.errors|json}}
+    

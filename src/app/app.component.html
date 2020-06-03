@@ -1,0 +1,29 @@
+<h3>-------------------------------------- Header --------------------------------------</h3>
+<!--Header-->
+<h2>Logo - AKTU ERP</h2>
+<!-- <a href="/example">Example anchor</a> -->
+
+<nav>
+    <a routerLink="/home">Home Link</a>&nbsp;
+    <a routerLink="/example">Example Link</a>&nbsp;
+    <a routerLink="/home2">Home2 Link</a>&nbsp;    
+    <a routerLink="/example/routing">Routing example</a> &nbsp;
+    <a routerLink="routeParam/1/adesh">Link with  params</a>&nbsp;
+    <!-- <a href="queryString?id=100&name=adesh">Link with Query string2</a>&nbsp; -->
+    <a routerLink="queryString" [queryParams]="{id: '100', name:'Jitu'}">Link with Query string</a>&nbsp; 
+
+    <a routerLink="/example/formExample">Form example</a>&nbsp;   
+    <a routerLink="studentList">Student List</a>&nbsp; 
+
+    <a routerLink="session">Session List</a>&nbsp;    
+    
+</nav>
+
+<!--Side Navigation-->
+
+<!--Body-->
+<h3>-------------------------------------- Child View --------------------------------------</h3>
+<router-outlet></router-outlet>
+
+<!--Footer-->
+<h3>-------------------------------------- Footer --------------------------------------</h3>
